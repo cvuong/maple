@@ -31,6 +31,7 @@ class Maple.Routers.ApplicationRouter extends Backbone.Router
 
   routes:
     '' : 'index'
+    'tagger' : 'tagger'
     'newPost' : 'newPost'
     'editPost/:id' : 'editPost'
     'companies/:id' : 'showCompany'
@@ -43,6 +44,10 @@ class Maple.Routers.ApplicationRouter extends Backbone.Router
     'terms': 'terms'
     'privacy': 'privacy'
     '*default' : 'index'
+
+  tagger: ->
+    view = new Maple.Views.TaggerView()
+    @viewManager.showView(view, $(mainContainer))
 
   index: ->
     if Maple.session.get("user_signed_in") || Maple.session.get("company_signed_in")
