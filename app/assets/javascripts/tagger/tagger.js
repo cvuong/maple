@@ -27,9 +27,10 @@
 
       // Add the thumbnails to the thumbnail
       // container
-      src = $(this).attr("src");
-      $(settings.thumbContainer).append("sup");
-      console.log(src);
+      src = "'" + $(this).attr("src") + "'";
+      $(settings.thumbContainer).append('<div style="cursor: pointer; height: ' + settings.thumbSize + 'px; width: ' + settings.thumbSize + 'px; margin-right: 10px; display: inline-block; background-image: url(' + src + '); background-position: top -' + (coords.y - settings.thumbSize / 2) + 'px left -' + (coords.x - settings.thumbSize / 2) + 'px; background-repeat: no-repeat;"></div>');
+
+      settings.onTag();
 
     });
 
